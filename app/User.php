@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name','surname', 'dni','telephone', 'email', 'password', 'collegiateNumber', 'nuhsa', 'birthday', 'address', 'userType', 'specialty_id','clinic_id',
     ];
 
     /**
@@ -36,4 +36,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function treatments()
+    {
+        return $this->$this->hasMany('App\treatment');
+    }
+
+    public function specialty()
+    {
+        return $this->belongsTo('App\specialty');
+    }
+
+    public function clinic()
+    {
+        return $this->belongsTo('App\Clinic');
+    }
 }

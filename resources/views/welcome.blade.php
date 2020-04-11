@@ -97,6 +97,9 @@
                 <div>
                     <h1>Saray Gallardo Romero</h1>
                 </div>
+               <!-- <div class="links">
+                    <a href="https://github.com/SarayGRus/Gestion-de-tratamientos.git ">Haz click aquí para acceder al código en Github del proyecto</a>
+                </div>-->
 
             </div>
         </div>

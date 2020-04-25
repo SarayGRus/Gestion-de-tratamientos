@@ -16,10 +16,10 @@ class CreateSpecialtiesTable extends Migration
         Schema::create('specialties', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->enum('name', ['Anatomía patológica','Alergología','Cardiología','Cirugía general','Cirugía cardíaca','Cirugía plástica','Cirugía de mama','Cirugía maxilofacial',
-                'Cirugía vascular','Dermatología','Endocrinología y nutrición','Gastroenterología-Digestivo','Genética','Geriatría','Ginecología',
-                'Hematología','Hepatología','Enfermedades infecciosas','Medicina interna','Nefrología','Neumología','Neurología','Neurocirugía',
-                'Oftalmología','Otorrinolaringología','Oncología','Pediatría','Proctología','Psiquiatría','Rehabilitación y M. Deportiva','Reumatología','Traumatología','Urología']);
+            $table->enum('name', ['anatomiaPatologica','alergologia','cardiologia','cirugiaGeneral','cirugiaCardiaca','cirugiaPlastica','cirugiaDeMama','cirugiaMaxilofacial',
+                'cirugiaVascular','dermatologia','endocrinologiaYnutricion','gastroenterologiaDigestivo','genetica','geriatria','ginecologia',
+                'hematologia','hepatologia','enfermedadesInfecciosas','medicinaInterna','nefrologia','neumologia','neurologia','neurocirugia',
+                'oftalmologia','otorrinolaringologia','oncologia','pediatria','proctologia','psiquiatria','rehabilitacionMDeportiva','reumatologia','traumatologia','urologia']);
 
         });
     }

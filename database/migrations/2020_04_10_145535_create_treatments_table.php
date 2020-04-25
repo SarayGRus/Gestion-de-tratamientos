@@ -17,7 +17,7 @@ class CreateTreatmentsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->Date('startDate');
-            $table->Date('endDate');
+            $table->Date('endDate')->nullable();
             $table->string('description');
             $table->unsignedBigInteger('doctor_id');
             $table->unsignedBigInteger('patient_id');

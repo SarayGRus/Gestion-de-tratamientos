@@ -30,10 +30,9 @@ class CreateUsersTable extends Migration
             $table->string('collegiateNumber')->nullable();
             //paciente
             $table->string('nuhsa')->nullable();
-            $table->Date('birthday')->nullable();
-            $table->string('address')->nullable();
+
             //atributo para diferenciar el tipo de usuario
-            $table->enum('userType', ['medico', 'paciente']);
+            $table->enum('userType', ['doctor', 'patient']);
 
             //foreing key medico
             $table->unsignedBigInteger('clinic_id')->nullable();

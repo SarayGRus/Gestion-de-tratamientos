@@ -41,11 +41,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
                                 </li>
                             @endif
                         @else
@@ -54,17 +54,63 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    @if(Auth::user()->userType == 'doctor')
+                                        <a class="dropdown-item" href="{{route('myPatientsTreatments')}}"
+                                           onclick="event.preventDefault(); document.getElementById('myPatientsTreatments-form').submit();">
+                                            {{__('Mis prescripciones')}}
+                                        </a>
+                                        <form id="myPatientsTreatments-form" action="{{ route('myPatientsTreatments') }}" method="GET" style="...">
+                                            @csrf
+                                        </form>
+                                        <a class="dropdown-item" href="{{route('mySpecialty')}}"
+                                           onclick="event.preventDefault(); document.getElementById('mySpecialty-form').submit();">
+                                            {{__('Especialidad')}}
+                                        </a>
+                                        <form id="mySpecialty-form" action="{{ route('mySpecialty') }}" method="GET" style="...">
+                                            @csrf
+                                        </form>
+                                        </form>
+                                        <a class="dropdown-item" href="{{route('myClinic')}}"
+                                           onclick="event.preventDefault(); document.getElementById('myClinic-form').submit();">
+                                            {{__('Centro de salud')}}
+                                        </a>
+                                        <form id="myClinic-form" action="{{ route('myClinic') }}" method="GET" style="...">
+                                            @csrf
+                                        </form>
+                                        <a class="dropdown-item" href="{{route('myPatientsDisease')}}"
+                                           onclick="event.preventDefault(); document.getElementById('myPatientsDisease-form').submit();">
+                                            {{__('Enfermedades')}}
+                                        </a>
+                                        <form id="myPatientsDisease-form" action="{{ route('myPatientsDisease') }}" method="GET" style="...">
+                                            @csrf
+                                        </form>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
+
+
+                                    @endif
+                                    @if(Auth::user()->userType == 'patient')
+                                        <a class="dropdown-item" href="{{ route('myTreatments') }}"
+                                           onclick="event.preventDefault(); document.getElementById('myTreatments-form').submit();">
+                                            {{ __('Mis tratamientos') }}
+                                        </a>
+                                        <form id="myTreatments-form" action="{{ route('myTreatments') }}" method="GET" style="...">
+                                            @csrf
+                                        </form>
+
+                                    @endif
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            {{ __('Cerrar sesión') }}
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                </ul>
                             </li>
                         @endguest
                     </ul>

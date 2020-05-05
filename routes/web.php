@@ -26,8 +26,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Rutas solo para pacientes
 Route::group(['middleware' => 'App\Http\Middleware\PatientMiddleware'], function ()
 {
-    Route::get('/myTreatments', 'TreatmentController@indexPatient')->name('myTreatments');
-    Route::get('/doctorSpecialty', 'SpecialtyController@indexPatient')->name('doctorSpecialty');
+    Route::get('/myTreatments', 'TreatmentController@index')->name('myTreatments');
+
+    Route::get('/indexPatient/{id}','PosologyController@indexPatient')->name('posologies.indexPatient');
+
+    Route::get('/indexPatientMedicine/{id}','MedicineController@indexPatientMedicine')->name('medicines.indexPatientMedicine');
+
     Route::resource('doses','DoseController');
 
 });
@@ -40,12 +44,15 @@ Route::group(['middleware' => 'App\Http\Middleware\DoctorMiddleware'], function 
     Route::get('/assignSpecialty','SpecialtyController@showAssign')->name('specialties.showAssign');
     Route::post('/assignSpecialtyDoctor','SpecialtyController@assignDoctor')->name('specialties.assign');
     Route::resource('specialties','SpecialtyController');
+
     Route::get('/myClinic','ClinicController@indexDoctor')->name('myClinic');
     Route::get('/assignClinic','ClinicController@showAssign')->name('clinics.showAssign');
     Route::post('/assignClinicDoctor','ClinicController@assignDoctor')->name('clinics.assign');
     Route::resource('clinics','ClinicController');
+
     Route::get('/myPatientsDisease','DiseaseController@index')->name('myPatientsDisease');
     Route::resource('diseases','DiseaseController');
+
     Route::get('/myPatientsTreatments','TreatmentController@indexDoctor')->name('myPatientsTreatments');
     Route::get('/myPatients', 'TreatmentController@showPatients')->name('treatments.showPatients');
     Route::get('/assignTreatment/{id}','TreatmentController@showAssign')->name('treatments.showAssign');

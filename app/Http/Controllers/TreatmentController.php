@@ -19,7 +19,8 @@ class TreatmentController extends Controller
      */
     public function index()
     {
-        //
+        $treatments = treatment::where('patient_id','=',Auth::user()->id)->get();
+        return view('treatments.index',['treatments'=>$treatments]);
     }
 
     /**
@@ -28,11 +29,6 @@ class TreatmentController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function indexPatient()
-    {
-        /*$treatments = treatment::where('patient_id', Auth::user()->id)->get();
-        return view('treatments.index',['treatments'=>$treatments]);*/
-    }
 
     public function indexDoctor()
     {

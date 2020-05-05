@@ -18,6 +18,12 @@ class MedicineController extends Controller
         return view('medicines/index',['medicines'=>$medicines]);
     }
 
+    public function indexPatientMedicine($id)
+    {
+        $medicines = Medicine::all()->where('id','=',$id);
+        return view('medicines/indexPatient',['medicines'=>$medicines]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

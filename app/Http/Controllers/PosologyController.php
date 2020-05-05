@@ -22,6 +22,12 @@ class PosologyController extends Controller
 
     }*/
 
+    public function indexPatient($id){
+        $treatment = treatment::find($id);
+        $posologies = Posology::all()->where('treatment_id','=',$id);
+        return view('posologies/indexPatient',['posologies'=>$posologies,'treatment'=>$treatment]);
+    }
+
     public function findByTreatment($id)
     {
         $treatment = treatment::find($id);

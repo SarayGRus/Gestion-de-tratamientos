@@ -21,13 +21,13 @@ class SpecialtyController extends Controller
     }
     public function indexDoctor()
     {
-       /*$specialties = DB::table('specialties')
+       $specialties = DB::table('specialties')
             ->join('users','users.specialty_id','=','specialties.id')
             ->select('users.id','specialties.*')
             ->where('users.id','=',Auth::user()->id)
-            ->get();*/
-
-        return view('specialties/index');
+            ->get();
+        //$specialties = specialty::where('id', Auth::user()->specialty_id)->pluck('name','id');
+        return view('specialties/index',['specialties'=>$specialties]);
 
     }
 
@@ -99,10 +99,13 @@ class SpecialtyController extends Controller
      * @param  \App\specialty  $specialty
      * @return \Illuminate\Http\Response
      */
-    public function edit(specialty $specialty)
+   /* public function edit($id)
     {
-        //
-    }
+
+        $specialty = specialty::find($id);
+
+        return view('specialties/edit',['specialty'=> $specialty]);
+    }*/
 
     /**
      * Update the specified resource in storage.
@@ -111,10 +114,6 @@ class SpecialtyController extends Controller
      * @param  \App\specialty  $specialty
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, specialty $specialty)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
@@ -122,8 +121,8 @@ class SpecialtyController extends Controller
      * @param  \App\specialty  $specialty
      * @return \Illuminate\Http\Response
      */
-    public function destroy(specialty $specialty)
+    /*public function destroy(specialty $specialty)
     {
         //
-    }
+    }*/
 }

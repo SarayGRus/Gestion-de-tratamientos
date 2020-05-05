@@ -28,13 +28,14 @@ Route::group(['middleware' => 'App\Http\Middleware\PatientMiddleware'], function
 {
     Route::get('/myTreatments', 'TreatmentController@indexPatient')->name('myTreatments');
     Route::get('/doctorSpecialty', 'SpecialtyController@indexPatient')->name('doctorSpecialty');
+    Route::resource('doses','DoseController');
 
 });
 
 //Rutas solo para médicos
 Route::group(['middleware' => 'App\Http\Middleware\DoctorMiddleware'], function ()
 {
-    Route::get('/myPatientsTreatments','TreatmentController@indexDoctor')->name('myPatientsTreatments');
+
     Route::get('/mySpecialty','SpecialtyController@indexDoctor')->name('mySpecialty');
     Route::get('/assignSpecialty','SpecialtyController@showAssign')->name('specialties.showAssign');
     Route::post('/assignSpecialtyDoctor','SpecialtyController@assignDoctor')->name('specialties.assign');
@@ -45,11 +46,22 @@ Route::group(['middleware' => 'App\Http\Middleware\DoctorMiddleware'], function 
     Route::resource('clinics','ClinicController');
     Route::get('/myPatientsDisease','DiseaseController@index')->name('myPatientsDisease');
     Route::resource('diseases','DiseaseController');
+    Route::get('/myPatientsTreatments','TreatmentController@indexDoctor')->name('myPatientsTreatments');
+    Route::get('/myPatients', 'TreatmentController@showPatients')->name('treatments.showPatients');
+    Route::get('/assignTreatment/{id}','TreatmentController@showAssign')->name('treatments.showAssign');
+    Route::post('/assignTreatmentPatient','TreatmentController@assignTreatment')->name('treatments.assign');
+    Route::resource('treatments','TreatmentController');
+
+    Route::get('medicinesDoctor', 'MedicineController@index')->name('medicinesDoctor');
+    Route::resource('medicines','MedicineController');
+
+    Route::get('/findByTreatment/{id}','PosologyController@findByTreatment')->name('posologies.findByTreatment');
+    Route::get('/createTreatment/{id}','PosologyController@createTreatment')->name('posologies.createTreatment');
+    Route::resource('posologies','PosologyController');
 
 
 });
 
-Route::resource('treatments','TreatmentController');
 
 
 

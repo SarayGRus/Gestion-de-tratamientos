@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Clinic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ClinicController extends Controller
 {
@@ -20,7 +21,12 @@ class ClinicController extends Controller
 
     public function indexDoctor()
     {
-        return view('clinics/index');
+        $clinics = DB::table('clinics')
+            ->join('users','users.clinic_id', '=', 'clinics.id')
+            ->select('users.id','clinics.*')
+            ->where('users.id', '=', Auth::user()->id)
+            ->get();
+        return view('clinics/index',['clinics'=>$clinics]);
     }
     /**
      * Show the form for creating a new resource.
@@ -94,11 +100,11 @@ class ClinicController extends Controller
      * @param  \App\Clinic  $clinic
      * @return \Illuminate\Http\Response
      */
-    public function edit(Clinic $clinic)
+    public function edit($id)
     {
-        //
+        $clinic = Clinic::find($id);
+        return view('clinics/edit',['clinic'=>$clinic]);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -106,9 +112,25 @@ class ClinicController extends Controller
      * @param  \App\Clinic  $clinic
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Clinic $clinic)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'address' => 'required|max:255',
+            'telephone' => 'required|max:255',
+            'opening' => 'required',
+            'closing' => 'required'
+
+        ]);
+
+
+        $clinic = Clinic::find($id);
+        $clinic->fill($request->all());
+        $clinic->save();
+
+        flash('Centro de salud modificado correctamente');
+
+        return redirect()->route('myClinic');
     }
 
     /**
@@ -117,8 +139,8 @@ class ClinicController extends Controller
      * @param  \App\Clinic  $clinic
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Clinic $clinic)
+   /* public function destroy(Clinic $clinic)
     {
         //
-    }
+    }*/
 }

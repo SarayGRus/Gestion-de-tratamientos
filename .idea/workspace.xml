@@ -2,47 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="031f9ba2-9bce-4a71-ae02-088d4445076e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ClinicController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/DiseaseController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SpecialtyController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/TreatmentController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/DoctorMiddleware.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/PatientMiddleware.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/clinics/assignClinic.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/clinics/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/clinics/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/clinics/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/diseases/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/diseases/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/diseases/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/specialties/assignSpecialty.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/specialties/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/specialties/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/specialties/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/treatments/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/treatments/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/treatments/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/treatments/indexDoctor.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/unauthorized.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gestionTratamiento.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gestionTratamiento.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/DoseController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/MedicineController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PosologyController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/doses/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/doses/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/doses/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/medicines/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/medicines/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/medicines/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/posologies/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/posologies/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/posologies/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/treatments/assignTreatment.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/treatments/patients.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/treatment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/treatment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_08_163315_create_specialties_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_08_163315_create_specialties_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_10_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_10_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_10_145535_create_treatments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_10_145535_create_treatments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClinicController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClinicController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DiseaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DiseaseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SpecialtyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SpecialtyController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TreatmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TreatmentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/clinics/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clinics/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/clinics/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clinics/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/diseases/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/diseases/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/diseases/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/diseases/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/specialties/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/specialties/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/specialties/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/treatments/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/treatments/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/treatments/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/treatments/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/treatments/indexDoctor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/treatments/indexDoctor.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -190,13 +179,20 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/posologies" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\saray\code\gestionTratamiento\resources\views\specialties" />
+      <recent name="C:\Users\saray\code\gestionTratamiento\resources\views\posologies" />
+      <recent name="C:\Users\saray\code\gestionTratamiento\resources\views\medicines" />
+      <recent name="C:\Users\saray\code\gestionTratamiento\resources\views\doses" />
+      <recent name="C:\Users\saray\code\gestionTratamiento\resources\views\treatments" />
+      <recent name="C:\Users\saray\code\gestionTratamiento\resources\views\diseases" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\saray\code\gestionTratamiento\resources\views\treatments" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -233,7 +229,10 @@
       <workItem from="1586950385847" duration="16207000" />
       <workItem from="1587330240669" duration="20725000" />
       <workItem from="1587634147833" duration="16591000" />
-      <workItem from="1587829789861" duration="6884000" />
+      <workItem from="1587829789861" duration="12546000" />
+      <workItem from="1588576523842" duration="18172000" />
+      <workItem from="1588606061618" duration="8132000" />
+      <workItem from="1588668872085" duration="20796000" />
     </task>
     <task id="LOCAL-00001" summary="Second commit">
       <created>1586623241461</created>
@@ -249,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586623285063</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Specialities, Diseases, Clinics">
+      <created>1587837332957</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1587837332957</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,6 +277,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Second commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Second commit" />
+    <MESSAGE value="Specialities, Diseases, Clinics" />
+    <option name="LAST_COMMIT_MESSAGE" value="Specialities, Diseases, Clinics" />
   </component>
 </project>

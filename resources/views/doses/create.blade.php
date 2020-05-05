@@ -5,12 +5,12 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Editar una enfermedad</div>
+                    <div class="panel-heading">Registra una enfermedad</div>
 
                     <div class="panel-body">
                         @include('flash::message')
 
-                        {!! Form::model($disease, ['route' => ['diseases.update', $disease->id], 'method'=>'PUT']) !!}
+                        {!! Form::open(['route' => 'diseases.store']) !!}
                         <div class="form-group">
                             {!! Form::label('name', 'Nombre') !!}
                             {!! Form::text('name',null,['class'=>'form-control', 'required', 'autofocus']) !!}

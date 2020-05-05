@@ -85,6 +85,13 @@
                                         <form id="myPatientsDisease-form" action="{{ route('myPatientsDisease') }}" method="GET" style="...">
                                             @csrf
                                         </form>
+                                        <a class="dropdown-item" href="{{route('medicinesDoctor')}}"
+                                           onclick="event.preventDefault(); document.getElementById('medicinesDoctor-form').submit();">
+                                            {{__('Medicamentos')}}
+                                        </a>
+                                        <form id="medicinesDoctor-form" action="{{ route('medicinesDoctor') }}" method="GET" style="...">
+                                            @csrf
+                                        </form>
 
 
 
@@ -97,7 +104,6 @@
                                         <form id="myTreatments-form" action="{{ route('myTreatments') }}" method="GET" style="...">
                                             @csrf
                                         </form>
-
                                     @endif
                                     <li>
                                         <a class="dropdown-item" href="{{ route('logout') }}"

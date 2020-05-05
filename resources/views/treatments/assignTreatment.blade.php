@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Crear tratamiento</div>
+                    <div class="panel-heading">Prescribir tratamiento</div>
 
                     <div class="panel-body">
                         @include('flash::message')
@@ -20,7 +20,8 @@
                         <div class="form-group">
                             {!!Form::label('patient_id', 'Paciente') !!}
                             <br>
-                            {!! Form::select('patient_id', $patients, ['class' => 'form-control']) !!}
+                            <span>{{ $patient->name }}</span>
+                            {!! Form::hidden('patient_id', $patient->id) !!}
                         </div>
                         <div class="form-group">
                             {!!Form::label('disease_id', 'Enfermedad') !!}

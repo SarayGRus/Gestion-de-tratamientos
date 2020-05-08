@@ -11,7 +11,7 @@
                         @include('flash::message')
                         <br>
                         {!! Form::open(['route' => 'myTreatments', 'method' => 'get']) !!}
-                        {!!   Form::submit('Tratamientos', ['class'=> 'btn btn-primary'])!!}
+                        {!!   Form::submit('Volver a tratamientos', ['class'=> 'btn btn-primary'])!!}
                         {!! Form::close() !!}
 
                         <br><br>
@@ -24,7 +24,7 @@
                                 <th>Frecuencia</th>
                                 <th>Periodo</th>
 
-                                <th colspan="2">Acciones</th>
+                                <th colspan="3">Acciones</th>
                             </tr>
 
                             @foreach ($posologies as $posology)
@@ -45,10 +45,20 @@
                                         {!! Form::close() !!}
                                     </td>
                                     <td>
-                                        {!! Form::open(['route' => ['doses.indexPatientDose',$posology->medicine_id], 'method' => 'get']) !!}
-                                        {!!   Form::submit('Registrar toma', ['class'=> 'btn btn-primary'])!!}
+                                        {!! Form::open(['route' => ['doses.createDose',$posology->id], 'method' => 'get']) !!}
+                                        @if($treatment->endDate >= date('Y-m-d\Th:i'))
+                                            {!!   Form::submit('Registrar toma', ['class'=> 'btn btn-primary'])!!}
+                                        @else
+                                            {!!   Form::submit('Registrar toma', ['disabled','class'=> 'btn btn-outline-primary'])!!}
+                                        @endif
                                         {!! Form::close() !!}
                                     </td>
+                                    <td>
+                                        {!! Form::open(['route' => ['doses.indexPatientDose',$posology->id], 'method' => 'get']) !!}
+                                        {!!   Form::submit('Ver tomas', ['class'=> 'btn btn-primary'])!!}
+                                        {!! Form::close() !!}
+                                    </td>
+
                                 </tr>
 
 

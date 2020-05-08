@@ -15,7 +15,7 @@
                         {!! Form::close() !!}
                         <br><br>
                         {!! Form::open(['route' => ['posologies.createTreatment', $treatment->id], 'method' => 'get']) !!}
-                        {!!   Form::submit('Añadir medicamento', ['class'=> 'btn btn-primary'])!!}
+                        {!!   Form::submit('Añadir medicación', ['class'=> 'btn btn-primary'])!!}
                         {!! Form::close() !!}
 
                         <br><br>
@@ -28,7 +28,7 @@
                                 <th>Frecuencia</th>
                                 <th>Periodo</th>
 
-                                <th colspan="2">Acciones</th>
+                                <th colspan="3">Acciones</th>
                             </tr>
 
                             @foreach ($posologies as $posology)
@@ -40,6 +40,13 @@
                                     <td>{{ $posology->units }}</td>
                                     <td>{{ $posology->times }}</td>
                                     <td>{{ $posology->period }}</td>
+
+                                    <td>
+                                        {!! Form::open(['route' => ['doses.showDoses',$posology->id], 'method' => 'get']) !!}
+                                        {!!   Form::submit('Registro de tomas', ['class'=> 'btn btn-primary'])!!}
+                                        {!! Form::close() !!}
+
+                                    </td>
 
                                     <td>
                                         {!! Form::open(['route' => ['posologies.edit',$posology->id], 'method' => 'get']) !!}

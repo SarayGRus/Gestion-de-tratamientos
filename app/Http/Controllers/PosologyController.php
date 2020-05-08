@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Medicine;
 use App\Posology;
 use App\treatment;
+use Cassandra\Date;
 use Illuminate\Http\Request;
 
 class PosologyController extends Controller
@@ -23,9 +24,11 @@ class PosologyController extends Controller
     }*/
 
     public function indexPatient($id){
+
+        $now = new \DateTime();
         $treatment = treatment::find($id);
         $posologies = Posology::all()->where('treatment_id','=',$id);
-        return view('posologies/indexPatient',['posologies'=>$posologies,'treatment'=>$treatment]);
+        return view('posologies/indexPatient',['posologies'=>$posologies,'treatment'=>$treatment,'now'=>$now]);
     }
 
     public function findByTreatment($id)
@@ -140,6 +143,6 @@ class PosologyController extends Controller
         $posology->delete();
         flash('Medicación borrada correctamente');
 
-        return redirect()->route('medicacion.findByTreatment',["id"=> $posology->tratamiento_id]);
+        return redirect()->route('posologies.findByTreatment',["id"=> $posology->tratamiento_id]);
     }
 }

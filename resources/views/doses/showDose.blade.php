@@ -14,7 +14,6 @@
                             <tr>
                                 <th>Medicación</th>
                                 <th>Fecha</th>
-
                             </tr>
 
                             @foreach ($doses as $dose)
@@ -23,19 +22,6 @@
                                 <tr>
                                     <td>{{ $dose->posology->description}}</td>
                                     <td>{{ $dose->doseDate}}</td>
-
-
-                                    <td>
-                                        {!! Form::open(['route' => ['doses.edit',$dose->id], 'method' => 'get']) !!}
-                                        {!!   Form::submit('Editar', ['class'=> 'btn btn-warning'])!!}
-                                        {!! Form::close() !!}
-                                    </td>
-                                    <td>
-                                        {!! Form::open(['route' => ['doses.destroy',$dose->id], 'method' => 'delete']) !!}
-                                        {!!   Form::submit('Borrar', ['class'=> 'btn btn-danger' ,'onclick' => 'if(!confirm("¿Está seguro?"))event.preventDefault();'])!!}
-                                        {!! Form::close() !!}
-
-                                    </td>
                                 </tr>
                             @endforeach
                         </table>

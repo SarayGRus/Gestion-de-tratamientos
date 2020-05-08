@@ -2,13 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="031f9ba2-9bce-4a71-ae02-088d4445076e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/medicines/indexPatient.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/posologies/indexPatient.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/clinics/showClinic.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/doses/showDose.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/treatments/doctors.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/treatments/finishedTreatments.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MedicineController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MedicineController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClinicController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClinicController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DoseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DoseController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PosologyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PosologyController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TreatmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TreatmentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/doses/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/doses/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/doses/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/doses/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/doses/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/doses/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posologies/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posologies/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posologies/indexPatient.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posologies/indexPatient.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/treatments/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/treatments/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/treatments/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/treatments/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/treatments/indexDoctor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/treatments/indexDoctor.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -156,17 +168,17 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/medicines" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/treatments" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\saray\code\gestionTratamiento\resources\views\treatments" />
+      <recent name="C:\Users\saray\code\gestionTratamiento\resources\views\doses" />
+      <recent name="C:\Users\saray\code\gestionTratamiento\resources\views\clinics" />
       <recent name="C:\Users\saray\code\gestionTratamiento\resources\views\medicines" />
       <recent name="C:\Users\saray\code\gestionTratamiento\resources\views\posologies" />
-      <recent name="C:\Users\saray\code\gestionTratamiento\resources\views\doses" />
-      <recent name="C:\Users\saray\code\gestionTratamiento\resources\views\treatments" />
-      <recent name="C:\Users\saray\code\gestionTratamiento\resources\views\diseases" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\saray\code\gestionTratamiento\resources\views\treatments" />
@@ -209,7 +221,8 @@
       <workItem from="1587829789861" duration="12546000" />
       <workItem from="1588576523842" duration="18172000" />
       <workItem from="1588606061618" duration="8132000" />
-      <workItem from="1588668872085" duration="24579000" />
+      <workItem from="1588668872085" duration="39919000" />
+      <workItem from="1588795255938" duration="10570000" />
     </task>
     <task id="LOCAL-00001" summary="Second commit">
       <created>1586623241461</created>
@@ -239,7 +252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588699250143</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Vistas doctores y pacientes excepto Doses e información del doctor">
+      <created>1588702991110</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1588702991110</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,6 +283,7 @@
     <MESSAGE value="Second commit" />
     <MESSAGE value="Specialities, Diseases, Clinics" />
     <MESSAGE value="Vistas doctores excepto Doses" />
-    <option name="LAST_COMMIT_MESSAGE" value="Vistas doctores excepto Doses" />
+    <MESSAGE value="Vistas doctores y pacientes excepto Doses e información del doctor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Vistas doctores y pacientes excepto Doses e información del doctor" />
   </component>
 </project>

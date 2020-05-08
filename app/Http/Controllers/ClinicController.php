@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Clinic;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -55,6 +56,14 @@ class ClinicController extends Controller
         $clinics = Clinic::all()->pluck('name','id');
 
         return view('clinics.assignClinic',['clinics'=>$clinics]);
+    }
+
+    public function showClinic($id)
+    {
+        $doctor = User::find($id);
+        $clinics = Clinic::all()->where('id','=', $doctor->clinic_id);
+
+        return view('clinics.showClinic',['clinics'=>$clinics]);
     }
     /**
      * Store a newly created resource in storage.

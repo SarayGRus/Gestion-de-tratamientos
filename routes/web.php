@@ -27,12 +27,19 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'App\Http\Middleware\PatientMiddleware'], function ()
 {
     Route::get('/myTreatments', 'TreatmentController@index')->name('myTreatments');
+    Route::get('/myFinishedTreatments','TreatmentController@indexFinishedTreatments')->name('myFinishedTreatments');
+    Route::get('/showDoctors/{id}','TreatmentController@showDoctors')->name('treatments.showDoctors');
 
     Route::get('/indexPatient/{id}','PosologyController@indexPatient')->name('posologies.indexPatient');
 
     Route::get('/indexPatientMedicine/{id}','MedicineController@indexPatientMedicine')->name('medicines.indexPatientMedicine');
 
+    Route::get('/indexPatientDose/{id}','DoseController@indexPatientDose')->name('doses.indexPatientDose');
+    Route::get('/createDose/{id}','DoseController@createDose')->name('doses.createDose');
+    Route::post('/storeDose','DoseController@storeDose')->name('doses.storeDose');
     Route::resource('doses','DoseController');
+
+    Route::get('/showClinic/{id}','ClinicController@showClinic')->name('clinics.showClinic');
 
 });
 
@@ -66,8 +73,11 @@ Route::group(['middleware' => 'App\Http\Middleware\DoctorMiddleware'], function 
     Route::get('/createTreatment/{id}','PosologyController@createTreatment')->name('posologies.createTreatment');
     Route::resource('posologies','PosologyController');
 
+    Route::get('/showDoses/{id}','DoseController@showDoses')->name('doses.showDoses');
+
 
 });
+Route::resource('doses','DoseController');
 
 
 

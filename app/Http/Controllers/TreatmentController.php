@@ -6,6 +6,7 @@ use App\disease;
 use App\Medicine;
 use App\treatment;
 use App\User;
+use Illuminate\Contracts\Auth\Middleware\AuthenticatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -19,8 +20,21 @@ class TreatmentController extends Controller
      */
     public function index()
     {
-        $treatments = treatment::where('patient_id','=',Auth::user()->id)->get();
+        $now = new \DateTime();
+        $treatments = treatment::where('patient_id','=',Auth::user()->id)
+            ->where('endDate','>=',$now)->get();
         return view('treatments.index',['treatments'=>$treatments]);
+
+    }
+
+    public function indexFinishedTreatments(){
+        $now = new \DateTime();
+        $treatments = treatment::where('patient_id','=',Auth::user()->id)
+            ->where('endDate','<',$now)->get();
+
+        return view('treatments.finishedTreatments',['treatments'=>$treatments]);
+
+
     }
 
     /**
@@ -30,15 +44,21 @@ class TreatmentController extends Controller
      */
 
 
-    public function indexDoctor()
+    public function indexDoctor(Request $request)
     {
         /*$demands = Demand::whereHas('petitioner', function($q){
             $q->where('users.cp','=', Auth::user()->cp);
         })->get();*/
+        $nombreABuscar = $request->get('query');
 
-        $treatments = treatment::whereHas('doctorUser', function ($q){
-            $q->where('users.id','=',Auth::user()->id);
+        $treatments = treatment::whereHas('doctorUser', function ($q) use ($nombreABuscar){
+            $q->where('users.id','=',Auth::user()->id)
+                ->where('treatments.patient_id',
+                    'LIKE','%'.$nombreABuscar.'%');
         })->get();
+
+
+
         /*$treatments = DB::table('treatments')
             ->join('users','users.id',"=", 'treatments.doctor_id')
             ->select('users.id','treatments.*')
@@ -55,6 +75,22 @@ class TreatmentController extends Controller
 
         return view('treatments.patients',['patients'=>$patients]);
     }
+
+    public function showDoctors($id)
+    {
+
+        //$doctors = User::where('userType','=','doctor')->get();
+
+        /*$doctors = User::whereHas('treatments',function ($q){
+            $q->where('treatments.patient_id','=', Auth::user()->id);
+        })*/
+        $treatment = treatment::find($id);
+        $doctors = User::all()->where('id','=',$treatment->doctor_id);
+
+        return view('treatments.doctors',['doctors'=>$doctors]);
+    }
+
+
     public function showAssign($id)
     {
 

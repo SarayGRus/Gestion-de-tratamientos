@@ -8,6 +8,10 @@
                     <div class="panel-heading">Mis Tratamientos</div>
 
                     <div class="panel-body">
+                        @include('flash::message')
+                        {!! Form::open(['route' => 'myFinishedTreatments', 'method' => 'get']) !!}
+                        {!!   Form::submit('Tratamientos finalizados', ['class'=> 'btn btn-primary'])!!}
+                        {!! Form::close() !!}
 
                         <br><br>
                         <table class="table table-striped table-bordered">
@@ -18,7 +22,7 @@
                                 <th>Enfermedad</th>
                                 <th>Fecha de inicio</th>
                                 <th>Fecha de fin</th>
-                                <th colspan="1">Acciones</th>
+                                <th colspan="2">Acciones</th>
                             </tr>
 
                             @foreach ($treatments as $treatment)
@@ -35,6 +39,11 @@
                                     <td>
                                         {!! Form::open(['route' => ['posologies.indexPatient',$treatment->id], 'method' => 'get']) !!}
                                         {!!   Form::submit('Ver tratamiento', ['class'=> 'btn btn-primary'])!!}
+                                        {!! Form::close() !!}
+                                    </td>
+                                    <td>
+                                        {!! Form::open(['route' => ['treatments.showDoctors',$treatment->id], 'method' => 'get']) !!}
+                                        {!!   Form::submit('Ver doctor', ['class'=> 'btn btn-primary'])!!}
                                         {!! Form::close() !!}
                                     </td>
 

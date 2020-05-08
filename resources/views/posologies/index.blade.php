@@ -10,12 +10,24 @@
                     <div class="panel-body">
                         @include('flash::message')
                         <br>
-                        {!! Form::open(['route' => 'myPatientsTreatments', 'method' => 'get']) !!}
-                        {!!   Form::submit('Tratamientos', ['class'=> 'btn btn-primary'])!!}
-                        {!! Form::close() !!}
+                        @if($treatment->endDate >= date('Y-m-d\Th:i'))
+                            {!! Form::open(['route' => 'myPatientsTreatments', 'method' => 'get']) !!}
+                            {!!   Form::submit('Tratamientos', ['class'=> 'btn btn-primary'])!!}
+                            {!! Form::close() !!}
+                        @else
+                            {!! Form::open(['route' => 'finishedTreatments', 'method' => 'get']) !!}
+                            {!!   Form::submit('Tratamientos', ['class'=> 'btn btn-primary'])!!}
+                            {!! Form::close() !!}
+                        @endif
+
                         <br><br>
+
                         {!! Form::open(['route' => ['posologies.createTreatment', $treatment->id], 'method' => 'get']) !!}
-                        {!!   Form::submit('Añadir medicación', ['class'=> 'btn btn-primary'])!!}
+                        @if($treatment->endDate >= date('Y-m-d\Th:i'))
+                            {!!   Form::submit('Añadir medicación', ['class'=> 'btn btn-primary'])!!}
+                        @else
+                            {!!   Form::submit('Añadir medicación', ['disabled','class'=> 'btn btn-outline-primary'])!!}
+                        @endif
                         {!! Form::close() !!}
 
                         <br><br>
@@ -50,15 +62,24 @@
 
                                     <td>
                                         {!! Form::open(['route' => ['posologies.edit',$posology->id], 'method' => 'get']) !!}
-                                        {!!   Form::submit('Editar', ['class'=> 'btn btn-warning'])!!}
+                                        @if($treatment->endDate >= date('Y-m-d\Th:i'))
+                                            {!!   Form::submit('Editar', ['class'=> 'btn btn-success'])!!}
+                                        @else
+                                            {!!   Form::submit('Editar', ['disabled','class'=> 'btn btn-outline-success'])!!}
+                                        @endif
                                         {!! Form::close() !!}
                                     </td>
                                     <td>
                                         {!! Form::open(['route' => ['posologies.destroy',$posology->id], 'method' => 'delete']) !!}
-                                        {!!   Form::submit('Borrar', ['class'=> 'btn btn-danger' ,'onclick' => 'if(!confirm("¿Está seguro?"))event.preventDefault();'])!!}
+                                        @if($treatment->endDate >= date('Y-m-d\Th:i'))
+                                            {!!   Form::submit('Borrar', ['class'=> 'btn btn-danger' ,'onclick' => 'if(!confirm("¿Está seguro?"))event.preventDefault();'])!!}
+                                        @else
+                                            {!!   Form::submit('Borrar', ['disabled','class'=> 'btn btn-outline-danger' ,'onclick' => 'if(!confirm("¿Está seguro?"))event.preventDefault();'])!!}
+                                        @endif
                                         {!! Form::close() !!}
 
                                     </td>
+
                                 </tr>
                             @endforeach
                         </table>

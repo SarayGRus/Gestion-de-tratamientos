@@ -2,24 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="031f9ba2-9bce-4a71-ae02-088d4445076e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/clinics/showClinic.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/doses/showDose.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/treatments/doctors.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/treatments/finishedTreatments.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/treatments/finishedDoctor.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClinicController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClinicController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DoseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DoseController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PosologyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PosologyController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TreatmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TreatmentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/diseases/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/diseases/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/doses/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/doses/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/doses/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/doses/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/doses/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/doses/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/doses/showDose.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/doses/showDose.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/medicines/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/medicines/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/posologies/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posologies/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/posologies/indexPatient.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posologies/indexPatient.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/treatments/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/treatments/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/treatments/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/treatments/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/treatments/doctors.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/treatments/doctors.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/treatments/indexDoctor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/treatments/indexDoctor.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -173,15 +168,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\saray\code\gestionTratamiento\resources\views\treatments" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\saray\code\gestionTratamiento\resources\views\treatments" />
       <recent name="C:\Users\saray\code\gestionTratamiento\resources\views\doses" />
       <recent name="C:\Users\saray\code\gestionTratamiento\resources\views\clinics" />
       <recent name="C:\Users\saray\code\gestionTratamiento\resources\views\medicines" />
       <recent name="C:\Users\saray\code\gestionTratamiento\resources\views\posologies" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\saray\code\gestionTratamiento\resources\views\treatments" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -222,7 +217,8 @@
       <workItem from="1588576523842" duration="18172000" />
       <workItem from="1588606061618" duration="8132000" />
       <workItem from="1588668872085" duration="39919000" />
-      <workItem from="1588795255938" duration="10570000" />
+      <workItem from="1588795255938" duration="10873000" />
+      <workItem from="1588960492957" duration="14534000" />
     </task>
     <task id="LOCAL-00001" summary="Second commit">
       <created>1586623241461</created>
@@ -259,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588702991110</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Incluída la creación de tomas en el paciente">
+      <created>1588960379766</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1588960379766</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,6 +287,7 @@
     <MESSAGE value="Specialities, Diseases, Clinics" />
     <MESSAGE value="Vistas doctores excepto Doses" />
     <MESSAGE value="Vistas doctores y pacientes excepto Doses e información del doctor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Vistas doctores y pacientes excepto Doses e información del doctor" />
+    <MESSAGE value="Incluída la creación de tomas en el paciente" />
+    <option name="LAST_COMMIT_MESSAGE" value="Incluída la creación de tomas en el paciente" />
   </component>
 </project>

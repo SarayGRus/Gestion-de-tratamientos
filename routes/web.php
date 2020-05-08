@@ -64,6 +64,7 @@ Route::group(['middleware' => 'App\Http\Middleware\DoctorMiddleware'], function 
     Route::get('/myPatients', 'TreatmentController@showPatients')->name('treatments.showPatients');
     Route::get('/assignTreatment/{id}','TreatmentController@showAssign')->name('treatments.showAssign');
     Route::post('/assignTreatmentPatient','TreatmentController@assignTreatment')->name('treatments.assign');
+    Route::get('/finishedTreatments','TreatmentController@finishedTreatments')->name('finishedTreatments');
     Route::resource('treatments','TreatmentController');
 
     Route::get('medicinesDoctor', 'MedicineController@index')->name('medicinesDoctor');

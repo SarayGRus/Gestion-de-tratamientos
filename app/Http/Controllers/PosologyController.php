@@ -25,6 +25,7 @@ class PosologyController extends Controller
 
     public function indexPatient($id){
 
+
         $now = new \DateTime();
         $treatment = treatment::find($id);
         $posologies = Posology::all()->where('treatment_id','=',$id);
@@ -62,18 +63,19 @@ class PosologyController extends Controller
     {
         $this->validate($request,[
 
-            'treatment_id' => 'required|exists:treatments,id',
-            'medicine_id' => 'required|exists:medicines,id',
+            'description'=>'required|max:255',
             'units' => 'required|max:255',
             'times' => 'required|max:255',
             'period' => 'required|max:255',
-            'description'=>'required|max:255',
+            'treatment_id' => 'required|exists:treatments,id',
+            'medicine_id' => 'required|exists:medicines,id',
+
+
         ]);
 
         $posology = new Posology($request->all());
 
         $posology->save();
-
         flash('Medicación creada correctamente');
         return redirect()-> route('posologies.findByTreatment',['id'=>$posology->treatment_id]);
 

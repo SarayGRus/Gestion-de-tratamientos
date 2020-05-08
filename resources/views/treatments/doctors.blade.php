@@ -14,38 +14,57 @@
                         {!! Form::close() !!}
 
                         <br><br>
-                        <table class="table table-striped table-bordered">
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Apellido</th>
-                                <th>Especialidad</th>
-                                <th>Centro de salud</th>
-                                <th>Correo electrónico</th>
+                                    <div class="card">
+                                        <div class="card-header">Información sobre el doctor</div>
 
-                                <th colspan="2">Acciones</th>
-                            </tr>
+                                        <div class="card-body">
+                                            {!! Form::label('doctor_name', 'Nombre: ') !!}
+                                            {!! Form::hidden('doctor_name', $doctor->name,['class'=>'form-control','required'])!!}
+                                            {{$doctor->name}}
+                                            <br>
+                                            {!! Form::label('doctor_surname', 'Apellido: ') !!}
+                                            {!! Form::hidden('doctor_surname', $doctor->surname,['class'=>'form-control','required'])!!}
+                                            {{$doctor->surname}}
+                                            <br>
+                                            {!! Form::label('doctor_specialty', 'Especialidad: ') !!}
+                                            {!! Form::hidden('doctor_specialty', $doctor->specialty->name,['class'=>'form-control','required'])!!}
+                                            {{$doctor->specialty->name}}
+                                            <br>
+                                            {!! Form::label('doctor_email', 'Correo electrónico: ') !!}
+                                            {!! Form::hidden('doctor_email', $doctor->email,['class'=>'form-control','required'])!!}
+                                            {{$doctor->email}}
+                                            <br>
+                                        </div>
+                                    </div>
 
-                            @foreach ($doctors as $doctor)
+                        <br><br>
+                                    <div class="card">
+                                        <div class="card-header">Información sobre el centro</div>
 
+                                            <div class="card-body">
+                                                {!! Form::label('clinic_name', 'Nombre: ') !!}
+                                                {!! Form::hidden('clinic_name', $clinic->name,['class'=>'form-control','required'])!!}
+                                                {{$clinic->name}}
+                                                <br>
+                                                {!! Form::label('clinic_telephone', 'Teléfono: ') !!}
+                                                {!! Form::hidden('clinic_telephone', $clinic->telephone,['class'=>'form-control','required'])!!}
+                                                {{$clinic->telephone}}
+                                                <br>
+                                                {!! Form::label('clinic_opening', 'Hora de apertura: ') !!}
+                                                {!! Form::hidden('clinic_opening', $clinic->opening,['class'=>'form-control','required'])!!}
+                                                {{$clinic->opening}}
+                                                <br>
+                                                {!! Form::label('clinic_closing', 'Hora de apertura: ') !!}
+                                                {!! Form::hidden('clinic_closing', $clinic->closing,['class'=>'form-control','required'])!!}
+                                                {{$clinic->closing}}
+                                                <br>
+                                                {!! Form::label('clinic_address', 'Dirección: ') !!}
+                                                {!! Form::hidden('clinic_address', $clinic->address,['class'=>'form-control','required'])!!}
+                                                {{$clinic->address}}
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                <tr>
-                                    <td>{{ $doctor->name }}</td>
-                                    <td>{{ $doctor->surname}}</td>
-                                    <td>{{ $doctor->specialty->name}}</td>
-                                    <td>{{ $doctor->clinic->name}}</td>
-                                    <td>{{ $doctor->email}}</td>
-
-
-
-                                    <td>
-                                        {!! Form::open(['route' => ['clinics.showClinic',$doctor->id], 'method' => 'get']) !!}
-                                        {!!   Form::submit('Información del centro', ['class'=> 'btn btn-primary'])!!}
-                                        {!! Form::close() !!}
-                                    </td>
-                                </tr>
-
-                            @endforeach
-                        </table>
                     </div>
                 </div>
             </div>

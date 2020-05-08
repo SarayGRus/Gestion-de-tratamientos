@@ -17,8 +17,10 @@ class DoseController extends Controller
     public function indexPatientDose($id)
     {
         $posology = Posology::find($id);
-        $doses = Dose::where('posology_id','=',$posology->id);
-        return view('doses/index',['doses'=>$doses]);
+        $doses = Dose::all()->where('posology_id','=',$id);
+        $medicine = Medicine::find($posology->medicine_id);
+
+        return view('doses/index',['doses'=>$doses,'posology'=>$posology,'medicine'=>$medicine]);
 
     }
 
@@ -41,7 +43,8 @@ class DoseController extends Controller
         $doses = Dose::all()->where('posology_id','=',$posology->id);
         //$doses = Dose::all()->where('posology_id','=','9');
         //dd($doses);
-        return view('doses/showDose',['doses'=>$doses]);
+        $medicine = Medicine::find($posology->medicine_id);
+        return view('doses/showDose',['doses'=>$doses,'posology'=>$posology,'medicine'=>$medicine]);
     }
 
     /**
@@ -60,13 +63,13 @@ class DoseController extends Controller
 
         $dose = new Dose($request->all());
         $dose->save();
-        //dd($dose->posology_id);
 
 
+        $posology = Posology::find($dose->posology_id);
 
 
         flash('Toma registrada correctamente');
-        return redirect()->route('posologies.indexPatient',["id"=>$dose->posology_id]);
+        return redirect()->route('posologies.indexPatient',["id"=>$posology->treatment_id]);
     }
 
     /**
@@ -88,7 +91,7 @@ class DoseController extends Controller
      */
     public function edit(Dose $dose)
     {
-        //
+
     }
 
     /**
@@ -109,8 +112,13 @@ class DoseController extends Controller
      * @param  \App\Dose  $dose
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Dose $dose)
+    public function destroy($id)
     {
-        //
+        $dose = Dose::find($id);
+        $dose->delete();
+        flash('Medicación borrada correctamente');
+
+
+        return redirect()->route('doses.indexPatientDose',["id"=> $dose->posology_id]);
     }
 }

@@ -52,12 +52,14 @@
                                             {!!   Form::submit('Registrar toma', ['disabled','class'=> 'btn btn-outline-primary'])!!}
                                         @endif
                                         {!! Form::close() !!}
+
                                     </td>
                                     <td>
                                         {!! Form::open(['route' => ['doses.indexPatientDose',$posology->id], 'method' => 'get']) !!}
                                         {!!   Form::submit('Ver tomas', ['class'=> 'btn btn-primary'])!!}
                                         {!! Form::close() !!}
                                     </td>
+
 
                                 </tr>
 

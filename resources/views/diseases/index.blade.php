@@ -32,7 +32,7 @@
 
                                     <td>
                                         {!! Form::open(['route' => ['diseases.edit',$disease->id], 'method' => 'get']) !!}
-                                        {!!   Form::submit('Editar', ['class'=> 'btn btn-warning'])!!}
+                                        {!!   Form::submit('Editar', ['class'=> 'btn btn-success'])!!}
                                         {!! Form::close() !!}
                                     </td>
                                     <td>

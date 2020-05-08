@@ -37,7 +37,7 @@
 
                                     <td>
                                         {!! Form::open(['route' => ['medicines.edit',$medicine->id], 'method' => 'get']) !!}
-                                        {!!   Form::submit('Editar', ['class'=> 'btn btn-warning'])!!}
+                                        {!!   Form::submit('Editar', ['class'=> 'btn btn-success'])!!}
                                         {!! Form::close() !!}
                                     </td>
                                     <td>

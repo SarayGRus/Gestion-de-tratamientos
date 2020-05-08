@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Clinic;
 use App\disease;
 use App\Medicine;
 use App\treatment;
@@ -37,6 +38,14 @@ class TreatmentController extends Controller
 
     }
 
+    public function finishedTreatments(){
+        $now = new \DateTime();
+        $treatments = treatment::where('doctor_id','=',Auth::user()->id)
+            ->where('endDate','<',$now)->get();
+
+        return view('treatments.finishedDoctor',['treatments'=>$treatments]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -50,11 +59,13 @@ class TreatmentController extends Controller
             $q->where('users.cp','=', Auth::user()->cp);
         })->get();*/
         $nombreABuscar = $request->get('query');
+        $now = new \DateTime();
 
-        $treatments = treatment::whereHas('doctorUser', function ($q) use ($nombreABuscar){
+        $treatments = treatment::whereHas('doctorUser', function ($q) use ($nombreABuscar, $now){
             $q->where('users.id','=',Auth::user()->id)
                 ->where('treatments.patient_id',
-                    'LIKE','%'.$nombreABuscar.'%');
+                    'LIKE','%'.$nombreABuscar.'%')
+                ->where('endDate','>=',$now);
         })->get();
 
 
@@ -85,9 +96,13 @@ class TreatmentController extends Controller
             $q->where('treatments.patient_id','=', Auth::user()->id);
         })*/
         $treatment = treatment::find($id);
-        $doctors = User::all()->where('id','=',$treatment->doctor_id);
+        $id_doctor = $treatment->doctor_id;
+        $doctor = User::find($treatment->doctor_id);
+        //$doctor = User::where('id','=',$id_doctor);
+        $clinic = Clinic::find($doctor->clinic_id);
+        //dd($clinics);
 
-        return view('treatments.doctors',['doctors'=>$doctors]);
+        return view('treatments.doctors',['doctor'=>$doctor,'clinic'=>$clinic]);
     }
 
 

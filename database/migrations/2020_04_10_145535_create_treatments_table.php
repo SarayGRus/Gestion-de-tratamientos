@@ -16,9 +16,11 @@ class CreateTreatmentsTable extends Migration
         Schema::create('treatments', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->Date('startDate');
-            $table->Date('endDate')->nullable();
+            $table->DateTime('startDate');
+            $table->DateTime('endDate')->nullable();
             $table->string('description');
+            $table->double('adherence')->nullable();
+            $table->double('parcial_adherence')->nullable();
             $table->unsignedBigInteger('doctor_id');
             $table->unsignedBigInteger('patient_id');
             $table->unsignedBigInteger('disease_id');

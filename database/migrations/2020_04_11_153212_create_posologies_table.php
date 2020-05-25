@@ -18,7 +18,7 @@ class CreatePosologiesTable extends Migration
             $table->string('description');
             $table->integer('units');
             $table->integer('times');
-            $table->enum('period',['Horas','Días','Semanas','Meses','Año']);
+            $table->enum('period',['Horas','Días','Semanas']);
             $table->timestamps();
 
             //Foreign key

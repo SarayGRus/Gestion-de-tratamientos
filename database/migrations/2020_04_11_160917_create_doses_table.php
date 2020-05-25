@@ -15,7 +15,7 @@ class CreateDosesTable extends Migration
     {
         Schema::create('doses', function (Blueprint $table) {
             $table->id();
-            $table->date('doseDate');
+            $table->dateTime('doseDate');
             $table->timestamps();
 
             //Foreign key

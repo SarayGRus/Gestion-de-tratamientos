@@ -8,10 +8,7 @@
                     <div class="panel-heading">Tratamientos</div>
 
                     <div class="panel-body">
-                        {!! Form::open(['route' => 'treatments.showPatients', 'method' => 'get']) !!}
-                        {!!   Form::submit('Pacientes', ['class'=> 'btn btn-primary'])!!}
-                        {!! Form::close() !!}
-                        <br>
+
                         {!! Form::open(['route' => 'finishedTreatments', 'method' => 'get']) !!}
                         {!!   Form::submit('Tratamientos finalizados', ['class'=> 'btn btn-primary'])!!}
                         {!! Form::close() !!}
@@ -27,6 +24,8 @@
                                 <th>Enfermedad</th>
                                 <th>Fecha de inicio</th>
                                 <th>Fecha de fin</th>
+                                <th>Adherencia global</th>
+                                <th>Adherencia parcial</th>
                                 <th colspan="3">Acciones</th>
                             </tr>
 
@@ -36,10 +35,12 @@
                                 <tr>
 
                                     <td>{{ $treatment->description }}</td>
-                                    <td>{{ $treatment->patientUser->name }}</td>
+                                    <td>{{ $treatment->patientUser->fullName }}</td>
                                     <td>{{ $treatment->disease->name }}</td>
                                     <td>{{ $treatment->startDate}}</td>
                                     <td>{{ $treatment->endDate}}</td>
+                                    <td>{{ $treatment->adherence }}</td>
+                                    <td>{{ $treatment->parcial_adherence }}</td>
 
                                     <td>
                                         {!! Form::open(['route' => ['posologies.findByTreatment',$treatment->id], 'method' => 'get']) !!}

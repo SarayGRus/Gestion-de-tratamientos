@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <img src={{asset('gestiontratamiento.png')}} height="32px">{{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -56,6 +56,13 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     @if(Auth::user()->userType == 'doctor')
+                                        <a class="dropdown-item" href="{{route('treatments.showPatients')}}"
+                                           onclick="event.preventDefault(); document.getElementById('treatments.showPatients-form').submit();">
+                                            {{__('Mis pacientes')}}
+                                        </a>
+                                        <form id="treatments.showPatients-form" action="{{ route('treatments.showPatients') }}" method="GET" style="...">
+                                            @csrf
+                                        </form>
                                         <a class="dropdown-item" href="{{route('myPatientsTreatments')}}"
                                            onclick="event.preventDefault(); document.getElementById('myPatientsTreatments-form').submit();">
                                             {{__('Mis prescripciones')}}

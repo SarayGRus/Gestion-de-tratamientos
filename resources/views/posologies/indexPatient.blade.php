@@ -10,9 +10,16 @@
                     <div class="panel-body">
                         @include('flash::message')
                         <br>
-                        {!! Form::open(['route' => 'myTreatments', 'method' => 'get']) !!}
-                        {!!   Form::submit('Volver a tratamientos', ['class'=> 'btn btn-primary'])!!}
-                        {!! Form::close() !!}
+                        @if($treatment->endDate >= date('Y-m-d\Th:i'))
+                            {!! Form::open(['route' => 'myTreatments', 'method' => 'get']) !!}
+                            {!!   Form::submit('Tratamientos', ['class'=> 'btn btn-primary'])!!}
+                            {!! Form::close() !!}
+                        @else
+                            {!! Form::open(['route' => 'myFinishedTreatments', 'method' => 'get']) !!}
+                            {!!   Form::submit('Tratamientos', ['class'=> 'btn btn-primary'])!!}
+                            {!! Form::close() !!}
+
+                        @endif
 
                         <br><br>
                         <table class="table table-striped table-bordered">
@@ -31,7 +38,7 @@
 
 
                                 <tr>
-                                    <td>{{ $posology->medicine->code }}</td>
+                                    <td>{{ $posology->medicine->name }}</td>
                                     <td>{{ $posology->description}}</td>
                                     <td>{{ $posology->units }}</td>
                                     <td>{{ $posology->times }}</td>
@@ -47,9 +54,11 @@
                                     <td>
                                         {!! Form::open(['route' => ['doses.createDose',$posology->id], 'method' => 'get']) !!}
                                         @if($treatment->endDate >= date('Y-m-d\Th:i'))
+
                                             {!!   Form::submit('Registrar toma', ['class'=> 'btn btn-primary'])!!}
                                         @else
                                             {!!   Form::submit('Registrar toma', ['disabled','class'=> 'btn btn-outline-primary'])!!}
+
                                         @endif
                                         {!! Form::close() !!}
 

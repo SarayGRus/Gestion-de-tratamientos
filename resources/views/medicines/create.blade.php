@@ -12,18 +12,24 @@
 
                         {!! Form::open(['route' => 'medicines.store']) !!}
                         <div class="form-group">
-                            {!! Form::label('code', 'Nombre: código del medicamento') !!}
+                            {!! Form::label('name', 'Nombre') !!}
+                            {!! Form::text('name',null,['class'=>'form-control', 'required', 'autofocus']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('code', 'Código nacional') !!}
                             {!! Form::text('code',null,['class'=>'form-control', 'required', 'autofocus']) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('composition ', 'Composición') !!}
-                            {!! Form::text('composition',null,['class'=>'form-control', 'required']) !!}
+                            {!! Form::label('activeIngredient ', 'Principio activo') !!}
+                            {!! Form::text('activeIngredient',null,['class'=>'form-control', 'required']) !!}
                         </div>
                         <div class="form-group">
                             {!!Form::label('appearance', 'Presentación del medicamento') !!}
-                            <br>
-                            {!! Form::select('appearance',['Comprimido'=>'Comprimido', 'Inyectable'=>'Inyectable','Gota'=>'Gota','Sobre'=>'Sobre',
-                            'Solución'=>'Solución','Supositorio'=>'Supositorio','Suspensión'=>'Suspensión'], ['class' => 'form-control']) !!}
+                            {!! Form::text('appearance',null,['class'=>'form-control', 'required']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!!Form::label('pharmaForm', 'Forma farmacéutica') !!}
+                            {!! Form::text('pharmaForm',null,['class'=>'form-control', 'required']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('link', 'Link del medicamento') !!}

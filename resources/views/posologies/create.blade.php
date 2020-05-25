@@ -23,16 +23,16 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('units', 'Unidades') !!}
-                            {!! Form::number('units',null,['class'=>'form-control', 'required', 'autofocus']) !!}
+                            {!! Form::number('units',null,['min' => '1','class'=>'form-control', 'required', 'autofocus']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('times', 'Frecuencia') !!}
-                            {!! Form::number('times',null,['class'=>'form-control', 'required', 'autofocus']) !!}
+                            {!! Form::number('times',null,['min' => '1','class'=>'form-control', 'required', 'autofocus']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('period', 'Periodo') !!}
                             <br>
-                            {!! Form::select('period',['Horas'=>'HORAS','Días'=>'DÍAS','Semanas'=>'SEMANAS','Meses'=>'MESES','Año'=>'AÑO'], ['class' => 'form-control']) !!}
+                            {!! Form::select('period',['Horas'=>'HORAS','Días'=>'DÍAS','Semanas'=>'SEMANAS'], ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('description', 'Descripción') !!}

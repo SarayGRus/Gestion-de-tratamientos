@@ -74,6 +74,7 @@ Route::group(['middleware' => 'App\Http\Middleware\DoctorMiddleware'], function 
     Route::get('/createTreatment/{id}','PosologyController@createTreatment')->name('posologies.createTreatment');
     Route::resource('posologies','PosologyController');
 
+    //Route::get('/showAdherence/{id}','DoseController@adherence')->name('doses.showAdherence');
     Route::get('/showDoses/{id}','DoseController@showDoses')->name('doses.showDoses');
 
 

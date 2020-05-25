@@ -21,8 +21,8 @@
 
                                         <div class="card-body">
                                             {!! Form::label('medicine', 'Medicamento: ') !!}
-                                            {!! Form::hidden('medicine', $medicine->code,['class'=>'form-control','required'])!!}
-                                            {{$medicine->code}}
+                                            {!! Form::hidden('medicine', $medicine->name,['class'=>'form-control','required'])!!}
+                                            {{$medicine->name}}
                                             <br>
                                             {!! Form::label('posology_id', 'Posología: ') !!}
                                             {!! Form::hidden('posology_id', $posology->description,['class'=>'form-control','required'])!!}

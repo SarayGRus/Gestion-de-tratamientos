@@ -51,4 +51,10 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Clinic');
     }
+
+    public function getFullNameAttribute()
+    {
+        return $this->name .' '.$this->surname;
+    }
+
 }

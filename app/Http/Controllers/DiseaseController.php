@@ -114,8 +114,11 @@ class DiseaseController extends Controller
      * @param  \App\disease  $disease
      * @return \Illuminate\Http\Response
      */
-    public function destroy(disease $disease)
+    public function destroy($id)
     {
-        //
+        $disease = disease::find($id);
+        $disease->delete();
+        flash('Enfermedad borrada correctamente');
+        return redirect()->route('diseases.index');
     }
 }

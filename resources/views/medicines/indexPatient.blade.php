@@ -9,13 +9,14 @@
 
                     <div class="panel-body">
                         @include('flash::message')
-
                         <br><br>
                         <table class="table table-striped table-bordered">
                             <tr>
                                 <th>Nombre</th>
-                                <th>Composición</th>
+                                <th>Código nacional</th>
+                                <th>Principio activo</th>
                                 <th>Presentación</th>
+                                <th>Forma farmacéutica</th>
                                 <th>Enlace</th>
                             </tr>
 
@@ -23,10 +24,12 @@
 
 
                                 <tr>
+                                    <td>{{ $medicine->name }}</td>
                                     <td>{{ $medicine->code }}</td>
-                                    <td>{{ $medicine->composition }}</td>
+                                    <td>{{ $medicine->activeIngredient }}</td>
                                     <td>{{ $medicine->appearance }}</td>
-                                    <td>{{ $medicine->link}}</td>
+                                    <td>{{ $medicine->pharmaForm }}</td>
+                                    <td><a href="{{ $medicine->link}}" target="_blank">Prospecto de {{$medicine->name}}</a></td>
                                 </tr>
                             @endforeach
                         </table>

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Medicine;
+use App\Posology;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MedicineController extends Controller
 {
@@ -12,16 +14,24 @@ class MedicineController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    /*public function index()
     {
         $medicines = Medicine::all();
         return view('medicines/index',['medicines'=>$medicines]);
+    }*/
+    public function index(Request $request)
+    {
+        $medicines = Medicine::where('medicines.name','LIKE','%'.$request
+                ->get("query").'%')->get();
+
+        return view('medicines/index',['medicines'=>$medicines]);
     }
+
 
     public function indexPatientMedicine($id)
     {
-        $medicines = Medicine::all()->where('id','=',$id);
-        return view('medicines/indexPatient',['medicines'=>$medicines]);
+        $medicine = Medicine::all()->where('id','=',$id);
+        return view('medicines/indexPatient',['medicines'=>$medicine]);
     }
 
     /**
@@ -43,9 +53,11 @@ class MedicineController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
+            'name'=> 'required|max:255',
             'code' => 'required|max:255',
-            'composition' => 'required|max:255',
+            'activeIngredient' => 'required|max:255',
             'appearance' => 'required|max:255',
+            'pharmaForm' => 'required|max:255',
             'link' => 'required|max:255'
         ]);
 
@@ -89,9 +101,11 @@ class MedicineController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
+            'name'=> 'required|max:255',
             'code' => 'required|max:255',
-            'composition' => 'required|max:255',
+            'activeIngredient' => 'required|max:255',
             'appearance' => 'required|max:255',
+            'pharmaForm' => 'required|max:255',
             'link' => 'required|max:255'
         ]);
 

@@ -15,5 +15,9 @@ class Clinic extends Model
     {
         return $this->hasMany('App\User');
     }
+    public function getFullNameAttribute()
+    {
+        return $this->name .', '.$this->address;
+    }
 
 }

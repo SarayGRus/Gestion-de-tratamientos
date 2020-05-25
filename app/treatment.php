@@ -8,7 +8,7 @@ class treatment extends Model
 {
     //
     protected $fillable = [
-        'startDate','endDate', 'description', 'doctor_id', 'disease_id', 'patient_id',
+        'startDate','endDate', 'description', 'adherence','parcial_adherence','doctor_id', 'disease_id', 'patient_id',
     ];
 
     public function patientUser()

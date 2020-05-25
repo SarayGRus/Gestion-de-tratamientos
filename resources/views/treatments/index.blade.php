@@ -22,6 +22,8 @@
                                 <th>Enfermedad</th>
                                 <th>Fecha de inicio</th>
                                 <th>Fecha de fin</th>
+                                <th>Adherencia global</th>
+                                <th>Adherencia parcial</th>
                                 <th colspan="2">Acciones</th>
                             </tr>
 
@@ -31,10 +33,12 @@
                                 <tr>
 
                                     <td>{{ $treatment->description }}</td>
-                                    <td>{{ $treatment->doctorUser->name }}</td>
+                                    <td>{{ $treatment->doctorUser->fullName }}</td>
                                     <td>{{ $treatment->disease->name }}</td>
                                     <td>{{ $treatment->startDate}}</td>
                                     <td>{{ $treatment->endDate}}</td>
+                                    <td>{{ $treatment->adherence }}</td>
+                                    <td>{{ $treatment->parcial_adherence }}</td>
 
                                     <td>
                                         {!! Form::open(['route' => ['posologies.indexPatient',$treatment->id], 'method' => 'get']) !!}

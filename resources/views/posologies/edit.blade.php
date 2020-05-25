@@ -33,7 +33,7 @@
                         <div class="form-group">
                             {!! Form::label('period', 'Periodo') !!}
                             <br>
-                            {!! Form::select('period',['Horas'=>'HORAS','Días'=>'DÍAS','Semanas'=>'SEMANAS','Meses'=>'MESES','Año'=>'AÑO'], ['class' => 'form-control']) !!}
+                            {!! Form::select('period',['Horas'=>'HORAS','Días'=>'DÍAS','Semanas'=>'SEMANAS'], ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('description', 'Descripción') !!}

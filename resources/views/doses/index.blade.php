@@ -25,8 +25,8 @@
 
                                         <div class="card-body">
                                             {!! Form::label('medicine', 'Medicamento: ') !!}
-                                            {!! Form::hidden('medicine', $medicine->code,['class'=>'form-control','required'])!!}
-                                            {{$medicine->code}}
+                                            {!! Form::hidden('medicine', $medicine->name,['class'=>'form-control','required'])!!}
+                                            {{$medicine->name}}
                                             <br>
                                             {!! Form::label('posology_id', 'Posología: ') !!}
                                             {!! Form::hidden('posology_id', $posology->description,['class'=>'form-control','required'])!!}
@@ -54,8 +54,13 @@
                                     <td>{{ $dose->doseDate}}</td>
 
                                     <td>
+
                                         {!! Form::open(['route' => ['doses.destroy',$dose->id], 'method' => 'delete']) !!}
-                                        {!!   Form::submit('Borrar', ['class'=> 'btn btn-danger' ,'onclick' => 'if(!confirm("¿Está seguro?"))event.preventDefault();'])!!}
+                                        @if($treatment->endDate >= date('Y-m-d\Th:i'))
+                                            {!!   Form::submit('Borrar', ['class'=> 'btn btn-danger' ,'onclick' => 'if(!confirm("¿Está seguro?"))event.preventDefault();'])!!}
+                                        @else
+                                            {!!   Form::submit('Borrar', ['disabled','class'=> 'btn btn-outline-danger' ,'onclick' => 'if(!confirm("¿Está seguro?"))event.preventDefault();'])!!}
+                                        @endif
                                         {!! Form::close() !!}
 
                                     </td>

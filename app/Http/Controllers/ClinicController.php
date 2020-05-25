@@ -53,7 +53,7 @@ class ClinicController extends Controller
     public function showAssign()
     {
 
-        $clinics = Clinic::all()->pluck('name','id');
+        $clinics = Clinic::all()->pluck('fullName','id');
 
         return view('clinics.assignClinic',['clinics'=>$clinics]);
     }
@@ -148,8 +148,13 @@ class ClinicController extends Controller
      * @param  \App\Clinic  $clinic
      * @return \Illuminate\Http\Response
      */
-   /* public function destroy(Clinic $clinic)
+   /*public function destroy($id)
     {
-        //
+        $clinic = Clinic::find($id);
+        $clinic->delete();
+        flash('Centro de salud borrado correctamente');
+
+
+        return redirect()->route('myClinic');
     }*/
 }

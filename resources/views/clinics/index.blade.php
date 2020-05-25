@@ -43,7 +43,10 @@
                                         {!! Form::open(['route' => ['clinics.edit',$clinic->id], 'method' => 'get']) !!}
                                         {!!   Form::submit('Editar', ['class'=> 'btn btn-success'])!!}
                                         {!! Form::close() !!}
+
+
                                     </td>
+
                                 </tr>
                             @endforeach
                         </table>

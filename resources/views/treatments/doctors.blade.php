@@ -50,11 +50,12 @@
                                                 {!! Form::hidden('clinic_telephone', $clinic->telephone,['class'=>'form-control','required'])!!}
                                                 {{$clinic->telephone}}
                                                 <br>
+
                                                 {!! Form::label('clinic_opening', 'Hora de apertura: ') !!}
                                                 {!! Form::hidden('clinic_opening', $clinic->opening,['class'=>'form-control','required'])!!}
                                                 {{$clinic->opening}}
                                                 <br>
-                                                {!! Form::label('clinic_closing', 'Hora de apertura: ') !!}
+                                                {!! Form::label('clinic_closing', 'Hora de cierre: ') !!}
                                                 {!! Form::hidden('clinic_closing', $clinic->closing,['class'=>'form-control','required'])!!}
                                                 {{$clinic->closing}}
                                                 <br>

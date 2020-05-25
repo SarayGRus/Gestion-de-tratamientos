@@ -18,6 +18,7 @@
                             {!! Form::open(['route' => 'finishedTreatments', 'method' => 'get']) !!}
                             {!!   Form::submit('Tratamientos', ['class'=> 'btn btn-primary'])!!}
                             {!! Form::close() !!}
+
                         @endif
 
                         <br><br>
@@ -47,7 +48,7 @@
 
 
                                 <tr>
-                                    <td>{{ $posology->medicine->code }}</td>
+                                    <td>{{ $posology->medicine->name }}</td>
                                     <td>{{ $posology->description}}</td>
                                     <td>{{ $posology->units }}</td>
                                     <td>{{ $posology->times }}</td>
@@ -66,6 +67,7 @@
                                             {!!   Form::submit('Editar', ['class'=> 'btn btn-success'])!!}
                                         @else
                                             {!!   Form::submit('Editar', ['disabled','class'=> 'btn btn-outline-success'])!!}
+
                                         @endif
                                         {!! Form::close() !!}
                                     </td>
@@ -73,9 +75,12 @@
                                         {!! Form::open(['route' => ['posologies.destroy',$posology->id], 'method' => 'delete']) !!}
                                         @if($treatment->endDate >= date('Y-m-d\Th:i'))
                                             {!!   Form::submit('Borrar', ['class'=> 'btn btn-danger' ,'onclick' => 'if(!confirm("¿Está seguro?"))event.preventDefault();'])!!}
+
                                         @else
                                             {!!   Form::submit('Borrar', ['disabled','class'=> 'btn btn-outline-danger' ,'onclick' => 'if(!confirm("¿Está seguro?"))event.preventDefault();'])!!}
+
                                         @endif
+
                                         {!! Form::close() !!}
 
                                     </td>

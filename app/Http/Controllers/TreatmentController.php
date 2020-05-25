@@ -61,10 +61,8 @@ class TreatmentController extends Controller
         $nombreABuscar = $request->get('query');
         $now = new \DateTime();
 
-        $treatments = treatment::whereHas('doctorUser', function ($q) use ($nombreABuscar, $now){
+        $treatments = treatment::whereHas('doctorUser', function ($q) use ($now){
             $q->where('users.id','=',Auth::user()->id)
-                ->where('treatments.patient_id',
-                    'LIKE','%'.$nombreABuscar.'%')
                 ->where('endDate','>=',$now);
         })->get();
 
@@ -134,7 +132,6 @@ class TreatmentController extends Controller
             'patient_id' => 'required|exists:users,id',
             'disease_id'=> 'required|exists:diseases,id',
             'startDate' => 'required|date|after:now',
-            'endDate' => 'required|date|after:now'
         ]);
 
         $treatment = new treatment($request->all());
@@ -184,7 +181,7 @@ class TreatmentController extends Controller
             'description' => 'required|max:255',
             'patient_id' => 'required|exists:users,id',
             'disease_id'=> 'required|exists:diseases,id',
-            'startDate' => 'required|date|after:now',
+            'startDate' => 'required|date',
             'endDate' => 'required|date|after:now'
         ]);
 

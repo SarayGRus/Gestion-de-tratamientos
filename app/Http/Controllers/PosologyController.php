@@ -47,7 +47,7 @@ class PosologyController extends Controller
     public function createTreatment($id)
     {
         $treatment = treatment::find($id);
-        $medicines = Medicine::all()->pluck('code','id');
+        $medicines = Medicine::all()->pluck('name','id');
         return view('posologies/create',['treatment'=> $treatment, 'medicines'=>$medicines]);
 
     }
@@ -142,9 +142,10 @@ class PosologyController extends Controller
     public function destroy($id)
     {
         $posology = Posology::find($id);
+        $treatment = treatment::find($posology->treatment_id);
         $posology->delete();
         flash('Medicación borrada correctamente');
 
-        return redirect()->route('posologies.findByTreatment',["id"=> $posology->tratamiento_id]);
+        return redirect()->route('posologies.findByTreatment',["id"=>$treatment->id]);
     }
 }

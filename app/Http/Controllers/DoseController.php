@@ -110,7 +110,8 @@ class DoseController extends Controller
             $n_days = $n_days+1;
 
             $n_days_actual = $date1->diffInDays($now);
-            $n_days_actual += 1;
+            $n_days_actual = $n_days_actual + 1;
+            //dd ("Información de ejecucion: ".$n_days_actual. "Var2: ". $n_days);
             //n_days no tiene en cuenta el dia de fin/inicio del tratamiento, es decir,
             //cuenta un día menos, por lo que tenemos que sumar uno.
 

@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-12 col-md-offset-2">
+            <div class="col-md-10 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">Medicamentos</div>
 
@@ -43,9 +43,8 @@
                                     {!! Form::hidden('pharmaForm', $medicine->pharmaForm,['class'=>'form-control','required'])!!}
                                     {{$medicine->pharmaForm}}
                                     <br>
-                                    {!! Form::label('link', 'Enlace: ') !!}
                                     {!! Form::hidden('link', $medicine->link,['class'=>'form-control','required'])!!}
-                                    {{$medicine->link}}
+                                    <a href="{{ $medicine->link}}" target="_blank">Prospecto de {{$medicine->name}}</a>
                                     <br>
                                     <table class="table table-striped table-bordered">
                                         <tr>
@@ -68,4 +67,5 @@
                 </div>
             </div>
         </div>
+    </div>
 @endsection

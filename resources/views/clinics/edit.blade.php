@@ -27,11 +27,11 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('opening', 'Horario de apertura') !!}
-                            <input type="time" id="opening" name="opening" class="form-control" value="{{Carbon\Carbon::now()->format('Th:i')}}" />
+                            <input type="time" id="opening" name="opening" class="form-control" value="{{$clinic->opening}}" />
                         </div>
                         <div class="form-group">
                             {!! Form::label('closing', 'Horario de cierre') !!}
-                            <input type="time" id="closing" name="closing" class="form-control" value="{{Carbon\Carbon::now()->format('Th:i')}}" />
+                            <input type="time" id="closing" name="closing" class="form-control" value="{{$clinic->closing}}" />
                         </div>
 
 

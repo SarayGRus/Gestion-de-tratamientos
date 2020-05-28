@@ -30,8 +30,11 @@ class DiseaseController extends Controller
      */
     public function create()
     {
-        $specialties = specialty::where('id', Auth::user()->specialty_id)->pluck('name','id');
-        return view('diseases/create',['specialty'=>$specialties]);
+
+        $user = Auth::user();
+        $specialty_id  = $user->specialty_id;
+        $specialty = specialty::find($specialty_id);
+        return view('diseases/create',['specialty'=>$specialty]);
     }
 
 
@@ -77,7 +80,9 @@ class DiseaseController extends Controller
     public function edit($id)
     {
         $disease = disease::find($id);
-        $specialty = specialty::all()->pluck('name','id');
+        $user = Auth::user();
+        $specialty_id  = $user->specialty_id;
+        $specialty = specialty::find($specialty_id);
 
         return view('diseases/edit',['disease'=>$disease, 'specialty'=>$specialty]);
     }

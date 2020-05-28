@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Clinic;
 use App\disease;
+use App\Dose;
 use App\Medicine;
 use App\treatment;
 use App\User;
@@ -21,28 +22,52 @@ class TreatmentController extends Controller
      */
     public function index()
     {
-        $now = new \DateTime();
+        $now = date('Y-m-d\Th:i');
         $treatments = treatment::where('patient_id','=',Auth::user()->id)
             ->where('endDate','>=',$now)->get();
+        foreach ($treatments as $treatment)
+        {
+            if($treatment->updated_at <= $treatment->endDate || $treatment->update_at < $now)
+            {
+                app(DoseController::class)->adherence($treatment->id);
+            }
+
+        }
         return view('treatments.index',['treatments'=>$treatments]);
 
     }
 
     public function indexFinishedTreatments(){
-        $now = new \DateTime();
+        $now = date('Y-m-d\Th:i');
         $treatments = treatment::where('patient_id','=',Auth::user()->id)
             ->where('endDate','<',$now)->get();
+        foreach ($treatments as $treatment)
+        {
+            if($treatment->updated_at <= $treatment->endDate || $treatment->update_at < $now)
+            {
+                app(DoseController::class)->adherence($treatment->id);
+                //dd($treatment);
+            }
 
+        }
         return view('treatments.finishedTreatments',['treatments'=>$treatments]);
 
 
     }
 
     public function finishedTreatments(){
-        $now = new \DateTime();
+        $now = date('Y-m-d\Th:i');
         $treatments = treatment::where('doctor_id','=',Auth::user()->id)
             ->where('endDate','<',$now)->get();
+        foreach ($treatments as $treatment)
+        {
+            if($treatment->updated_at <= $treatment->endDate || $treatment->update_at < $now)
+            {
+                app(DoseController::class)->adherence($treatment->id);
+                //dd($treatment);
+            }
 
+        }
         return view('treatments.finishedDoctor',['treatments'=>$treatments]);
     }
 
@@ -59,12 +84,20 @@ class TreatmentController extends Controller
             $q->where('users.cp','=', Auth::user()->cp);
         })->get();*/
         $nombreABuscar = $request->get('query');
-        $now = new \DateTime();
-
+        $now = date('Y-m-d\Th:i');
         $treatments = treatment::whereHas('doctorUser', function ($q) use ($now){
             $q->where('users.id','=',Auth::user()->id)
                 ->where('endDate','>=',$now);
         })->get();
+        foreach ($treatments as $treatment)
+        {
+            if($treatment->updated_at <= $treatment->endDate || $treatment->update_at < $now)
+            {
+                app(DoseController::class)->adherence($treatment->id);
+                //dd($treatment);
+            }
+
+        }
 
 
 

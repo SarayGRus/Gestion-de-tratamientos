@@ -20,7 +20,7 @@
                         <div class="form-group">
                             {!!Form::label('medicine_id', 'Medicamento') !!}
                             <br>
-                            {!! Form::select('medicine_id', $medicines, ['class' => 'form-control', 'required']) !!}
+                            {!! Form::select('medicine_id', $medicines, $posology->medicine_id, ['class' => 'form-control', 'required']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('units', 'Unidades') !!}
@@ -33,7 +33,7 @@
                         <div class="form-group">
                             {!! Form::label('period', 'Periodo') !!}
                             <br>
-                            {!! Form::select('period',['Horas'=>'HORAS','Días'=>'DÍAS','Semanas'=>'SEMANAS'], ['class' => 'form-control']) !!}
+                            {!! Form::select('period',['Horas'=>'HORAS','Días'=>'DÍAS','Semanas'=>'SEMANAS'], $posology->period, ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('description', 'Descripción') !!}

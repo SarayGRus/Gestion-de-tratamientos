@@ -20,7 +20,7 @@
                         <div class="form-group">
                             {!!Form::label('patient_id', 'Paciente') !!}
                             <br>
-                            <span>{{ $patient->name }}</span>
+                            <span>{{ $patient->fullName }}</span>
                             {!! Form::hidden('patient_id', $patient->id) !!}
                         </div>
                         <div class="form-group">
@@ -30,11 +30,11 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('startDate', 'Fecha de inicio') !!}
-                            <input type="datetime-local" id="startDate" name="startDate" class="form-control" value="{{Carbon\Carbon::now()->format('Y-m-d\Th:i')}}" />
+                            <input type="datetime-local" id="startDate" name="startDate" class="form-control" value="{{Carbon\Carbon::now()->format('Y-m-d\TH:i')}}" />
                         </div>
                         <div class="form-group">
                             {!! Form::label('endDate', 'Fecha de fin') !!}
-                            <input type="datetime-local" id="endDate" name="endDate" class="form-control" value="{{Carbon\Carbon::now()->format('Y-m-d\Th:i')}}" />
+                            <input type="datetime-local" id="endDate" name="endDate" class="form-control" value="{{Carbon\Carbon::now()->format('Y-m-d\TH:i')}}" />
                         </div>
 
 

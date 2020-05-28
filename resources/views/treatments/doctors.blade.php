@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Mis doctores</div>
+                    <div class="panel-heading">Mi doctor</div>
 
                     <div class="panel-body">
                         @include('flash::message')

@@ -101,7 +101,7 @@ class PosologyController extends Controller
     public function edit($id)
     {
         $posology = Posology::find($id);
-        $medicines = Medicine::all()->pluck('code','id');
+        $medicines = Medicine::all()->pluck('name','id');
         return view('posologies/edit',['posology'=> $posology, 'medicines'=>$medicines]);
     }
 

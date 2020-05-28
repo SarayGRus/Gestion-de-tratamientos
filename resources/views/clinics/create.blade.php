@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Registrar mi centro de salud</div>
+                    <div class="panel-heading">Crear un centro de salud</div>
 
                     <div class="panel-body">
                         @include('flash::message')
@@ -26,11 +26,11 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('opening', 'Horario de apertura') !!}
-                            <input type="time" id="opening" name="opening" class="form-control" value="{{Carbon\Carbon::now()->format('Th:i')}}" />
+                            <input type="time" id="opening" name="opening" class="form-control" value="{{Carbon\Carbon::now()->format('H:i')}}" />
                         </div>
                         <div class="form-group">
                             {!! Form::label('closing', 'Horario de cierre') !!}
-                            <input type="time" id="closing" name="closing" class="form-control" value="{{Carbon\Carbon::now()->format('Th:i')}}" />
+                            <input type="time" id="closing" name="closing" class="form-control" value="{{Carbon\Carbon::now()->format('H:i')}}" />
                         </div>
 
 

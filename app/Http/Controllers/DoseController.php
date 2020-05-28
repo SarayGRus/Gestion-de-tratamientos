@@ -108,6 +108,7 @@ class DoseController extends Controller
 
             $n_days = $date1->diffInDays($date2);
             $n_days = $n_days+1;
+            //dd($n_days);
 
             $n_days_actual = $date1->diffInDays($now);
             $n_days_actual = $n_days_actual + 1;

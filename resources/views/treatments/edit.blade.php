@@ -21,20 +21,21 @@
                         <div class="form-group">
                             {!!Form::label('patient_id', 'Paciente') !!}
                             <br>
-                            {!! Form::select('patient_id', $patients, ['class' => 'form-control']) !!}
+                            {!! Form::select('patient_id', $patients, $treatment->patient_id, ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
                             {!!Form::label('disease_id', 'Enfermedad') !!}
                             <br>
-                            {!! Form::select('disease_id', $diseases, ['class' => 'form-control']) !!}
+                            {!! Form::select('disease_id', $diseases, $treatment->disease_id, ['class' => 'form-control']) !!}
+
                         </div>
                         <div class="form-group">
                             {!! Form::label('startDate', 'Fecha de inicio') !!}
-                            <input type="datetime-local" id="startDate" name="startDate" class="form-control" value="{{Carbon\Carbon::now()->format('Y-m-d\Th:i')}}" />
+                            <input type="datetime-local" id="startDate" name="startDate" class="form-control" value="{{Carbon\Carbon::parse($treatment->startDate)->format('Y-m-d\Th:i')}}" />
                         </div>
                         <div class="form-group">
                             {!! Form::label('endDate', 'Fecha de fin') !!}
-                            <input type="datetime-local" id="endDate" name="endDate" class="form-control" value="{{Carbon\Carbon::now()->format('Y-m-d\Th:i')}}" />
+                            <input type="datetime-local" id="endDate" name="endDate" class="form-control" value="{{Carbon\Carbon::parse($treatment->endDate)->format('Y-m-d\Th:i')}}" />
                         </div>
 
 

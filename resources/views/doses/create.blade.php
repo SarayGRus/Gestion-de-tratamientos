@@ -29,7 +29,7 @@
                         <br>
                         <div class="form-group">
                             {!! Form::label('doseDate', 'Fecha') !!}
-                            <input type="datetime-local" id="doseDate" name="doseDate" class="form-control" max="{{Carbon\Carbon::now()->format('Y-m-d\Th:i')}}" value="{{Carbon\Carbon::now()->format('Y-m-d\Th:i')}}" />
+                            <input type="datetime-local" id="doseDate" name="doseDate" class="form-control" max="{{Carbon\Carbon::now()->format('Y-m-d\TH:i')}}" value="{{Carbon\Carbon::now()->format('Y-m-d\Th:i')}}" />
                         </div>
 
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}

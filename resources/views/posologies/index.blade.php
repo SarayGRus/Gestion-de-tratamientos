@@ -10,7 +10,7 @@
                     <div class="panel-body">
                         @include('flash::message')
                         <br>
-                        @if($treatment->endDate >= date('Y-m-d\Th:i'))
+                        @if($treatment->endDate >= date('Y-m-d H:i:s'))
                             {!! Form::open(['route' => 'myPatientsTreatments', 'method' => 'get']) !!}
                             {!!   Form::submit('Tratamientos', ['class'=> 'btn btn-primary'])!!}
                             {!! Form::close() !!}
@@ -24,7 +24,7 @@
                         <br><br>
 
                         {!! Form::open(['route' => ['posologies.createTreatment', $treatment->id], 'method' => 'get']) !!}
-                        @if($treatment->endDate >= date('Y-m-d\Th:i'))
+                        @if($treatment->endDate >= date('Y-m-d H:i:s'))
                             {!!   Form::submit('Añadir medicación', ['class'=> 'btn btn-primary'])!!}
                         @else
                             {!!   Form::submit('Añadir medicación', ['disabled','class'=> 'btn btn-outline-primary'])!!}
@@ -63,7 +63,7 @@
 
                                     <td>
                                         {!! Form::open(['route' => ['posologies.edit',$posology->id], 'method' => 'get']) !!}
-                                        @if($treatment->endDate >= date('Y-m-d\Th:i'))
+                                        @if($treatment->endDate >= date('Y-m-d H:i:s'))
                                             {!!   Form::submit('Editar', ['class'=> 'btn btn-success'])!!}
                                         @else
                                             {!!   Form::submit('Editar', ['disabled','class'=> 'btn btn-outline-success'])!!}
@@ -73,7 +73,7 @@
                                     </td>
                                     <td>
                                         {!! Form::open(['route' => ['posologies.destroy',$posology->id], 'method' => 'delete']) !!}
-                                        @if($treatment->endDate >= date('Y-m-d\Th:i'))
+                                        @if($treatment->endDate >= date('Y-m-d H:i:s'))
                                             {!!   Form::submit('Borrar', ['class'=> 'btn btn-danger' ,'onclick' => 'if(!confirm("¿Está seguro?"))event.preventDefault();'])!!}
 
                                         @else
@@ -92,4 +92,5 @@
                 </div>
             </div>
         </div>
+    </div>
 @endsection

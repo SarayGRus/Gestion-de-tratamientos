@@ -10,7 +10,7 @@
                     <div class="panel-body">
                         @include('flash::message')
                         <br>
-                        @if($treatment->endDate >= date('Y-m-d\Th:i'))
+                        @if($treatment->endDate >= date('Y-m-d H:i:s'))
                             {!! Form::open(['route' => 'myTreatments', 'method' => 'get']) !!}
                             {!!   Form::submit('Tratamientos', ['class'=> 'btn btn-primary'])!!}
                             {!! Form::close() !!}
@@ -53,10 +53,11 @@
                                     </td>
                                     <td>
                                         {!! Form::open(['route' => ['doses.createDose',$posology->id], 'method' => 'get']) !!}
-                                        @if($treatment->endDate >= date('Y-m-d\Th:i'))
+                                        @if($treatment->endDate >= date('Y-m-d H:i:s'))
 
                                             {!!   Form::submit('Registrar toma', ['class'=> 'btn btn-primary'])!!}
                                         @else
+
                                             {!!   Form::submit('Registrar toma', ['disabled','class'=> 'btn btn-outline-primary'])!!}
 
                                         @endif
@@ -79,4 +80,5 @@
                 </div>
             </div>
         </div>
+    </div>
 @endsection

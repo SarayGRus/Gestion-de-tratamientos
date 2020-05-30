@@ -104,7 +104,7 @@ class DoseController extends Controller
             $date2string = $treatment->endDate;
             $date2 = Carbon::parse($date2string);
 
-            $now = new \DateTime();
+            $now = date('Y-m-d H:i:s');
 
             $n_days = $date1->diffInDays($date2);
             $n_days = $n_days+1;

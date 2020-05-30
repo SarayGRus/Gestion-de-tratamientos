@@ -6,6 +6,7 @@ use App\Clinic;
 use App\disease;
 use App\Dose;
 use App\Medicine;
+use App\Posology;
 use App\treatment;
 use App\User;
 use Illuminate\Contracts\Auth\Middleware\AuthenticatesRequests;
@@ -22,13 +23,18 @@ class TreatmentController extends Controller
      */
     public function index()
     {
-        $now = date('Y-m-d\Th:i');
+        $now = date('Y-m-d H:i:s');
         $treatments = treatment::where('patient_id','=',Auth::user()->id)
             ->where('endDate','>=',$now)->get();
         foreach ($treatments as $treatment)
         {
-            if($treatment->updated_at <= $treatment->endDate || $treatment->update_at < $now)
+            $posologies = Posology::all()->where('treatment_id','=',$treatment->id);
+            //dd($posologies);
+            $num_posologies = count($posologies);
+            //$treatment = treatment::find('4');
+            if($treatment->updated_at <= $treatment->endDate && $treatment->update_at <= $now && $num_posologies > 0)
             {
+                //dd($treatment->update_at<=$treatment->endDate);
                 app(DoseController::class)->adherence($treatment->id);
             }
 
@@ -38,12 +44,15 @@ class TreatmentController extends Controller
     }
 
     public function indexFinishedTreatments(){
-        $now = date('Y-m-d\Th:i');
+        $now = date('Y-m-d H:i:s');
         $treatments = treatment::where('patient_id','=',Auth::user()->id)
             ->where('endDate','<',$now)->get();
         foreach ($treatments as $treatment)
         {
-            if($treatment->updated_at <= $treatment->endDate || $treatment->update_at < $now)
+            $posologies = Posology::all()->where('treatment_id','=',$treatment->id);
+            //dd($posologies);
+            $num_posologies = count($posologies);
+            if($treatment->updated_at <= $treatment->endDate && $treatment->update_at <= $now && $num_posologies>0)
             {
                 app(DoseController::class)->adherence($treatment->id);
                 //dd($treatment);
@@ -56,12 +65,15 @@ class TreatmentController extends Controller
     }
 
     public function finishedTreatments(){
-        $now = date('Y-m-d\Th:i');
+        $now = date('Y-m-d H:i:s');
         $treatments = treatment::where('doctor_id','=',Auth::user()->id)
             ->where('endDate','<',$now)->get();
         foreach ($treatments as $treatment)
         {
-            if($treatment->updated_at <= $treatment->endDate || $treatment->update_at < $now)
+            $posologies = Posology::all()->where('treatment_id','=',$treatment->id);
+            //dd($posologies);
+            $num_posologies = count($posologies);
+            if($treatment->updated_at <= $treatment->endDate && $treatment->update_at <= $now && $num_posologies>0)
             {
                 app(DoseController::class)->adherence($treatment->id);
                 //dd($treatment);
@@ -84,14 +96,17 @@ class TreatmentController extends Controller
             $q->where('users.cp','=', Auth::user()->cp);
         })->get();*/
         $nombreABuscar = $request->get('query');
-        $now = date('Y-m-d\Th:i');
+        $now = date('Y-m-d H:i:s');
         $treatments = treatment::whereHas('doctorUser', function ($q) use ($now){
             $q->where('users.id','=',Auth::user()->id)
                 ->where('endDate','>=',$now);
         })->get();
         foreach ($treatments as $treatment)
         {
-            if($treatment->updated_at <= $treatment->endDate || $treatment->update_at < $now)
+            $posologies = Posology::all()->where('treatment_id','=',$treatment->id);
+            //dd($posologies);
+            $num_posologies = count($posologies);
+            if($treatment->updated_at <= $treatment->endDate && $treatment->update_at <= $now && $num_posologies>0)
             {
                 app(DoseController::class)->adherence($treatment->id);
                 //dd($treatment);

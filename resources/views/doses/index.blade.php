@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-16 col-md-offset-2">
+            <div class="col-md-20 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">Tomas</div>
 
@@ -56,7 +56,8 @@
                                     <td>
 
                                         {!! Form::open(['route' => ['doses.destroy',$dose->id], 'method' => 'delete']) !!}
-                                        @if($treatment->endDate >= date('Y-m-d\Th:i'))
+                                        @if($treatment->endDate >= date('Y-m-d H:i:s'))
+
                                             {!!   Form::submit('Borrar', ['class'=> 'btn btn-danger' ,'onclick' => 'if(!confirm("¿Está seguro?"))event.preventDefault();'])!!}
                                         @else
                                             {!!   Form::submit('Borrar', ['disabled','class'=> 'btn btn-outline-danger' ,'onclick' => 'if(!confirm("¿Está seguro?"))event.preventDefault();'])!!}

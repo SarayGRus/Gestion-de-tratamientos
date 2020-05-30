@@ -26,10 +26,10 @@ class PosologyController extends Controller
     public function indexPatient($id){
 
 
-        $now = new \DateTime();
+
         $treatment = treatment::find($id);
         $posologies = Posology::all()->where('treatment_id','=',$id);
-        return view('posologies/indexPatient',['posologies'=>$posologies,'treatment'=>$treatment,'now'=>$now]);
+        return view('posologies/indexPatient',['posologies'=>$posologies,'treatment'=>$treatment]);
     }
 
     public function findByTreatment($id)
